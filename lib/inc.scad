@@ -11,6 +11,9 @@ $fa=1;
 th=2.0; // thickness
 fl=.1; // fillet
 
+line=2.8;
+wire=3.5;
+
 module body(th,w1,w2,h){
     rotate([90,0,0])
     cyl(r=w1/2.00,h=th,fillet=fl);
@@ -34,11 +37,17 @@ module cutout(d,multi=1.2,th=th,closed=false){
   }
 }
 
-module assembly(th=th,w1,w2,h,holes){
+module assembly(th=th,w1=8,w2=8,holes){
+   h=holes[0][1]+1;
+
   rotate([90,0,0])
   difference(){
     body(th,w1,w2,h);
-    for(hole = holes){
+  
+
+
+   translate([0,0,-1.3])
+   for(hole = holes){
       translate([0,0,hole[0]/2+hole[1]])
       cutout(d=hole[0],closed=hole[2]);
     }
