@@ -4,7 +4,7 @@ OBJECTS := $(patsubst %.scad, stl/%.stl, $(SOURCES))
 
 
 stl/%.stl: %.scad
-	openscad -o $@ $<
+	OPENSCADPATH=.. openscad -o $@ $<
 
 stl: $(OBJECTS)
 	
