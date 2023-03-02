@@ -1,19 +1,23 @@
-include <lib/inc.scad>
+include <../lib/inc.scad>
 $fs=.2;
 
 module assembly(d=8.2, h=5,c=14,off=27){
   difference(){
+    // main disk
     cylinder(r=20, h=h);
 
+    // center cutout
     translate([0,0,-e])
     cylinder(r=d/2,h=h+e2);
 
-
+    // outer notches
     for ( i=[0:2] ){
       rotate([0,0,i*120+30]) translate([0,off,-e])
       cylinder(r=c,h=h+e2);
     }
 
+    
+    // mounts
     for ( i=[0:2] ){
       rotate([0,0,i*120-30]) translate([0,15,-2])
       rotate([30,0,0])
