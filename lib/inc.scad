@@ -25,14 +25,14 @@ module body(th,w1,w2,h){
     cyl(r=w2/2.00,h=th,fillet=fl);
 }
 
-module cutout(d,multi=1.2,th=th,closed=false){
+module cutout(d,multi=1.2,th,closed=false){
   rotate([90,0,0])
   cyl(r=multi*d/2,h=th+e2);
 
   if(! closed){
     translate([0,-th/2-e,-d/2*1/multi])
     rotate([0,-45,0])
-    translate([1.0,0,-0.9])
+    translate([1.0,0,-0.7])
     cube([15,th+e2,d]);
   }
 }
@@ -49,7 +49,7 @@ module assembly(th=th,w1=8,w2=8,holes){
    translate([0,0,-1.3])
    for(hole = holes){
       translate([0,0,hole[0]/2+hole[1]])
-      cutout(d=hole[0],closed=hole[2]);
+      cutout(d=hole[0],closed=hole[2],th=th);
     }
   }
 }

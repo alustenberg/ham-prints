@@ -1,4 +1,4 @@
-include <lib/inc.scad>
+include <../lib/inc.scad>
 $fs=.2;
 
 module assembly(d=8.2, h=5,c=14,off=27){
