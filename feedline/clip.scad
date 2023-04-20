@@ -3,7 +3,7 @@ include <../lib/inc.scad>
 so_diam=15.4+.2;
 so_height=9.7;
 
-plug_diam=4;  // 3.8 ~ 4.3 with/without compression
+plug_diam=4.2;  // 3.8 ~ 4.3 with/without compression
 plug_offset=so_diam/2+plug_diam/2-.5;
 
 wall_thick=.4*4;
