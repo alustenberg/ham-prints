@@ -1,4 +1,4 @@
-include <lib/inc.scad>
+include <../lib/inc.scad>
 
 // feed line, 2x element
 assembly(w1=15,w2=8,h=20,holes=[

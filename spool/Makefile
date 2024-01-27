@@ -4,9 +4,9 @@ OBJECTS := $(patsubst %.scad, stl/%.stl, $(SOURCES))
 
 
 stl/%.stl: %.scad
-	OPENSCADPATH=.. openscad -o $@ $<
+	openscad -o $@ $<
 
 stl: $(OBJECTS)
-
+	
 clean:
 	find -iname '*.stl' -delete

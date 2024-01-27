@@ -1,4 +1,4 @@
-include <lib/inc.scad>
+include <../lib/inc.scad>
 
 /*
 #18 dacon 1.4 2.0
