@@ -1,4 +1,4 @@
-include <../lib/inc.scad>
+include <../lib/shared.scad>
 
 module assembly(th=th,w1=8,w2=8,holes){
    h=holes[0][1]+0;
