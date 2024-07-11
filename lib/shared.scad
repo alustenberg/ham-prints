@@ -1,10 +1,10 @@
 include <inc.scad>
 
-module body(th,w1,w2,h){
+module body(th,w1,w2,h,sk=1.00){
     rotate([90,0,0])
     cyl(r=w1/2.00,h=th,chamfer=fl);
 
-    rounded_prismoid(size1=[w1,th],size2=[w2,th],h=h,r=fl);
+    rounded_prismoid(size1=[w1*sk,th],size2=[w2*sk,th],h=h,r=fl);
 
     translate([0,0,h])
     rotate([90,0,0])
