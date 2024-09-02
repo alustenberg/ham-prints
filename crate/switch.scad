@@ -10,10 +10,9 @@ blue   87  norm open
 
 module brace(
     width=27,
-    mount_thick=12, // 12 / 2 = 6, 6=thick*3
-    thick=2,
+    thick=1.8,
     switch_d=12,
-    lip=5,
+    lip=4,
 ){
     difference(){
         union(){
