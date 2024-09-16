@@ -5,7 +5,7 @@ thickness=5;
 bulkhead_od = 20-1;
 bulkhead_thick = 45;
 
-standoff_len=50;
+standoff_len=100;
 standoff_od=40;
 
 coax_diam=12;
@@ -42,10 +42,16 @@ module standoff(){
       cyl(r=standoff_od/2,h=standoff_len,center=false);
 
       // end rounding
-      translate([40,0,20])
+      color("orange")
+      translate([80,0,10])
       rotate([90,0,0])
       cyl(r=standoff_len,h=standoff_od+e2);
     }
+
+    // mount holes
+    translate([0,0,60])
+    rotate([90,0,0])
+    cyl(r=3,h=40);
 
     difference(){
       // cable guide
@@ -54,9 +60,9 @@ module standoff(){
       cuboid([standoff_od+e2,standoff_od-arm_thick*2+e2,standoff_len+e]);
 
       color("pink")
-      translate([0,0,-42])
+      translate([40-e,0,0])
       rotate([90,0,0])
-      cyl(r=50,h=standoff_od+e2);
+      cyl(r=45,h=standoff_od+e2);
 
 
     }
@@ -69,7 +75,8 @@ translate([-50,0,0])
 rotate([0,90,0])
 intersection(){
   // global clip
-  translate([1,0,0])
+  color("purple")
+  translate([1,0,20])
   cuboid([12,200,200]);
     
   assembly();
