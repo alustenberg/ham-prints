@@ -11,13 +11,16 @@ r1=7.69/2;
 //r2=3.4/2;
 
 // 14awg insulated solid wire 2.8mm
-r2=(2.6+0.25)/2;
+// slighter larger
+//r2=(2.8-0.05)/2;
+// slighter smaller
+r2=(2.8-0.15)/2;
 
 intersection(){
     difference(){
         union(){
             cuboid([12,8,11],chamfer=.5);
-            
+
             down(r1*off)
             intersection(){
                 rotate([90,0,0])
@@ -28,11 +31,11 @@ intersection(){
                 angle_pie_mask(ang=180,l=l,r=50);
         */    }
         }
-        
+
         down(r1*off)
         rotate([90,0,0])
         cyl(r=r1,l=l*2);
-            
+
         up(r2*off)
         rotate([90,0,90])
         cyl(r=r2,l=l*2);
