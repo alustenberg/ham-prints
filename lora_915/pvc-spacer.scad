@@ -33,11 +33,11 @@ module base(){
 
         for( xi = [-1, 1] ){
                 forward(xo*xi)
-                cyl(r=3/2,l=l+.1);
+                cyl(r=3.0/2,l=l+.1);
             
                 forward(xo*xi)
                 up(th/2*xi)
-                cyl(r=10/2,l=l);
+                cyl(r=10.5/2,l=l);
 
         }
 
