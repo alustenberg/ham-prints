@@ -9,4 +9,4 @@ stl/%.stl: %.scad
 stl: $(OBJECTS)
 
 clean:
-	find -iname '*.stl' -delete
+	find stl -iname '*.stl' -delete

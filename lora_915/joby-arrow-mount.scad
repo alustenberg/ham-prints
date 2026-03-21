@@ -1,11 +1,10 @@
-include <../lib/inc.scad>
+include <lib/inc.scad>
 
 th=4;
 l=25;
 off=1.1;
 
-// arrow 7.69mm d
-r1=7.70/2;
+r1=arrow_od/2;
 
 //rotate([180,0,0])
 up(2)

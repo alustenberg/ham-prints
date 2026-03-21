@@ -1,9 +1,9 @@
-include <../lib/inc.scad>
+include <lib/inc.scad>
 
 th=4;
 l=7;
 off=1.1;
-r1=7.69/2;
+r1=arrow_od/2;
 
 difference(){
     //down(2)
@@ -12,7 +12,6 @@ difference(){
         rotate([0,0,45/2])
         cyl(r=l,l=10,$fa=45);
     
-        
         cuboid([15,8,5]);
     }
     
@@ -25,13 +24,6 @@ difference(){
     cyl(r=r1,l=l*2);
      
 }
-
-
-
-desk_thick=40.3;
-desk_depth=35;
-shim_ang=1;
-hook_sweep=320;
 
 w=8;
 wt=3; // wall thick
@@ -62,7 +54,7 @@ rotate([0,90,90])
 half(r=r1,ang=270);
 
 // 1" sch 40 PVC
-r3=33.60/2;
+r3=pvc_od/2;
 up(r3+wt*off)
 rotate([0,180+(360-270)/2,0])
 rotate([0,90,90])

@@ -1,15 +1,8 @@
-include <../lib/inc.scad>
+include <lib/inc.scad>
 
 clip=false;
 xt30=true;
 sma=false;
-
-
-th=2.5;
-tth=2.5;
-
-id=26.02;
-od=33.61+.02;
 
 l=15;
 off=1.1;
@@ -26,35 +19,23 @@ psl=1;
 xo=3+psz/2;
 yo=1+psz/2;
 
-// 2.2 x 4.6
-module base(){
-    up(l/2) 
-    difference(){
-        cyl(r=od/2+th,l=l,chamfer=1);
-       
-        up(tth)
-        cyl(r=od/2,l=l, chamfer=1);
-    }
-    
-    
-    for( xi = [-1, 1] ){
-        for( yi = [-1, 1]) {
-            forward(xo*xi)
-            right(yo*yi) 
-            up(psl/2+tth)
-            cyl(r=psz/2,l=psl);
-            //cuboid([psz,psz,psz]);
-        }
-    }
-}
-
-module xt30(){
-        cuboid([5.5+.1, 10.48+.1,tth*2], chamfer=.5);
-}
 
 module cap(){
     difference(){
-        base();
+        union(){
+            base(pvc_od);
+            
+            for( xi = [-1, 1] ){
+                for( yi = [-1, 1]) {
+                    forward(xo*xi)
+                    right(yo*yi) 
+                    up(psl/2+th)
+                    cyl(r=psz/2,l=psl);
+                    //cuboid([psz,psz,psz]);
+                }
+            }
+        }
+        
         if(sma){
             right(ant_off)
             cyl(r=(6.75/2),l=tth*2);
@@ -67,7 +48,7 @@ module cap(){
         }
         
         if(xt30){
-            up(tth/2)
+            up(th/2)
             left(out_off)
             xt30();
         }
