@@ -24,11 +24,11 @@ module cap(){
 
         down(l)
         cyl(r=staff_od/2-2,l=l*3);
-
+/*
         down(l)
         left(out_off)
         cylinder(h=l*3,r=wd/2);
-
+*/
     }
 }
 
