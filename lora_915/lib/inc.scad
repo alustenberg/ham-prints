@@ -15,10 +15,10 @@ arrow_od= 7.69+.00;
 module base(id,th=th,tth=th,l=15){
     up(l/2)
     difference(){
-        cyl(r=id/2+th,l=l,chamfer=1);
+        cyl(r=id/2+th,l=l);
 
         up(tth)
-        cyl(r=id/2,l=l, chamfer=1);
+        cyl(r=id/2,l=l);
     }
 }
 

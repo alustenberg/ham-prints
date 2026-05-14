@@ -1,7 +1,7 @@
 include <lib/inc.scad>
 
-clip=false;
-xt30=true;
+clip=true;
+xt30=false;
 sma=false;
 
 l=15;
@@ -37,6 +37,7 @@ module cap(){
         }
         
         if(sma){
+            tth=th;
             right(ant_off)
             cyl(r=(6.75/2),l=tth*2);
         
@@ -54,13 +55,15 @@ module cap(){
         }
     }
 }
+// 6mm tube
+//r2=(6.00-.03)/2;
 
-module clip(a=90,th=3){
+module clip(a=90,th=th){
     up(l/2)
     difference(){
         union(){
             intersection(){
-                cyl(r=r1+th,l=l, chamfer=1);
+                cyl(r=r1+th,l=l);
       
                 rotate([0,0,a/2])
                 angle_pie_mask(ang=360-a,l=l,r=50);
@@ -71,4 +74,9 @@ module clip(a=90,th=3){
 }
 
 cap();
-if(clip) right(24) clip();
+if(clip){
+    off=23.7;
+    rot=90;
+    rotate([0,0,-(rot/2)]) right(off) clip();
+    rotate([0,0,(rot/2)]) right(off) clip();
+}
