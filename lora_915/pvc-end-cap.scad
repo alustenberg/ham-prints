@@ -6,7 +6,6 @@ xt30=false;
 
 
 top=true;
-
 tripod=!top;
 usb=!top;
 tabs=!top;
