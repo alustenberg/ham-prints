@@ -10,6 +10,7 @@ staff_od=18.91+.02;
 mast_od= 25.16+.25;
 mast_id= 19.31-.00;
 pvc_od=  33.61+.02;
+pvc_id=  26.00+.00;
 arrow_od= 7.69+.00;
 
 module base(id,th=th,tth=th,l=15){
