@@ -18,7 +18,7 @@ module body(id,th=th,tth=th,l=15){
     color("silver")
     difference(){
         l2=45;
-        cyl(r1=pvc_od/2+th,r2=ant_od/2+th/2,l=l2);
+        cyl(r1=pvc_od/2+th,r2=ant_od/2+.4,l=l2);
         down(1)
         cyl(r=ant_od/2,l=l2+2.1);
     }
@@ -39,8 +39,8 @@ module body(id,th=th,tth=th,l=15){
     color("green")
     difference(){
         nid=16.0;
-        cyl(r=pvc_id/2,l=8);
-        cyl(r=nid/2,l=9);
+        cyl(r=pvc_id/2,l=10);
+        cyl(r=nid/2,l=12);
     }
     
   
