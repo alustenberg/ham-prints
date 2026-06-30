@@ -11,6 +11,7 @@ mast_od= 25.16+.25;
 mast_id= 19.31-.00;
 pvc_od=  33.61+.02;
 pvc_id=  26.00+.00;
+pvc2_od=2.375*25.4-.5;
 arrow_od= 7.69+.00;
 
 module base(id,th=th,tth=th,l=15){
@@ -23,6 +24,6 @@ module base(id,th=th,tth=th,l=15){
     }
 }
 
-module xt30(){
+module xt30(th=th){
         cuboid([5.5+.1, 10.48+.1,th*2], chamfer=.5);
 }
