@@ -66,6 +66,7 @@ module body(id,th=th,tth=th,l=15){
     
 }
 
-
+pvc_od=48.30;
+pvc_id=40.30;
 body(pvc_od);
         
