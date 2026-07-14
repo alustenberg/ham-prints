@@ -8,7 +8,7 @@ module body(id,th=th,tth=th,l=15){
  
     // ant side
     ant_od=22.9;
-    l2=55;
+    l2=60;
     up(l2/2)
     color("silver")
     difference(){
@@ -29,12 +29,17 @@ module body(id,th=th,tth=th,l=15){
     }
     */
 
-    down(th)
+    down(6)
     color("green")
     difference(){
-        nid=16.0;
-        cyl(r=pvc_id/2,l=10);
-        cyl(r=nid/2,l=12);
+        nid=16.1;
+        nl=22;
+        nl2=12;
+        cyl(r=pvc_id/2+0.3,l=nl);
+        cyl(r=nid/2,l=nl+.1);
+        
+        down(nl-nl2-4)
+        cyl(r=nid/2+2.5,l=nl2+.1);
     }
     
   

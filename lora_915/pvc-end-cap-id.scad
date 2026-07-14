@@ -7,7 +7,7 @@ top=false;
 tripod=false; //!top;
 usb=!top && false;
 mount=false;
-tabs=!mount;
+tabs=!mount && false;
 mount_short=true;
 
 short_mount=mount && mount_short;
@@ -30,11 +30,28 @@ psl=1;
 xo=8+psz/2;
 yo=1+psz/2;
 
+module base(id,od,th=th,tth=th,l=15){
+    up(l/2)
+    difference(){
+        cyl(r1=od/2,r2=od/2,l=l);
+
+        up(tth)
+        union(){
+            difference(){
+                cyl(r=od/2+.1,l=l);
+                cyl(r=id/2,l=l);
+             }
+            cyl(r=id/2-th,l=l);
+            cuboid([od,12,l]);
+        }
+        
+    }
+}
 
 module cap(){
     difference(){
         union(){
-            base(pvc_od);
+            base(od=pvc_od, id=pvc_id+0.5);
 
             if(tabs){
                 for( xi = [-1, 1] ){
@@ -63,35 +80,6 @@ module cap(){
                     }
                 }
             }
-            
-            if(tripod){
-                
-                intersection(){
-                    cylinder(h=l,r=50);
-
-                    for(i=[0,1,2]){
-                        rotate([0,0,i*120-30])
-                        
-                        union(){
-                            back(20)
-                            up(top ? l : 0)
-                            cuboid([2,5,10]);
-
-                            back(27)
-                            up(l/2 + (top ? 2 : -2))
-                            rotate([ top ? 180 : 0, 0,0 ])
-                            rotate([ top ? -25 : 25,0,0])
-                            difference(){
-                                up(1)
-                                cyl(r=arrow_od/2+th,l=l+4,chamfer=.5);
-                                down(th)
-                                cyl(r=arrow_od/2+.2,l=l+4);
-                            }
-                        }
-                    }
-                }
-            }
-
         }
 
         if(sma){
@@ -137,6 +125,7 @@ module clip(a=90,th=th){
         cyl(r=r1,l=l*2);
     }
 }
+
 
 cap();
 if(clip){
