@@ -1,4 +1,6 @@
-include <lib/inc.scad>
+//include <lib/inc.scad>
+include <pvc-end-cap.scad>
+
 $fa=5;
 
 // https://antenna2.github.io/cebik/content/moxon/moxpage.html
@@ -31,30 +33,67 @@ wt=2.00;
 
 // coax thickness
 ct=6.00;
+coax=false;
 
 // frame thickness
 ft=wt*2;
 
+
 difference(){
-    cuboid([ma+wt, me, ft]);
-
-    forward(ft*1.5)
-    cuboid([ma-ft*2,me,ft+1]);
+    union(){
+        down(ft/2)
+        rotate([0,0,90])
+        cap();
+        
+        moxon();
+    }
     
-
     
-    for(i = [-1,1]){
-        back(i*(me/2-wt/2+e))
-        cuboid([ma,wt,wt]);
+    back(20.2)
+    rotate([80,0,0])
+    cylinder(r=1.0,10.5);
+}
+
+
+module moxon(){
+    difference(){
+        union(){
+            cuboid([ma+wt, me, ft]);
+            
+            if(coax){
+                up(ft/2-wt/2)
+                back(me/2)
+                cylinder(r=ct/2+3,mb);
+            } 
+                
+        }
+
+        // inner coax
+        if(coax){
+            up(ft/2-wt/2-e)
+            back(me/2)
+            cylinder(r=ct/2,mb+e*2);
+        }
+
+        // front cutout
+        forward(ft*1.5)
+        cuboid([ma-ft*2,me,ft+1]);
         
-        left(i*(ma/2+e))
-        back(me/2-mb/2+e)
-        cuboid([wt,mb,wt]);
+
         
-        left(i*(ma/2+e))
-        forward(me/2-md/2+e)
-        cuboid([wt,md,wt]);
-        
-        
+        for(i = [-1,1]){
+            back(i*(me/2-wt/2+e))
+            cuboid([ma,wt,wt]);
+            
+            left(i*(ma/2+e))
+            back(me/2-mb/2+e)
+            cuboid([wt,mb,wt]);
+            
+            left(i*(ma/2+e))
+            forward(me/2-md/2+e)
+            cuboid([wt,md,wt]);
+            
+            
+        }
     }
 }
