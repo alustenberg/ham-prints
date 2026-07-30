@@ -3,7 +3,7 @@ include <lib/inc.scad>
 clip=false;
 xt30=false;
 
-top=false;
+top=true;
 tripod=false; //!top;
 usb=!top && false;
 mount=false;
@@ -12,7 +12,7 @@ mount_short=true;
 
 short_mount=mount && mount_short;
 long_mount=mount && !mount_short;
-sma=top;
+sma=false;//top;
 
 l=15;
 off=1.1;
