@@ -16,7 +16,7 @@ module body(id,th=th,tth=th,l=15){
         cyl(r=pvc_id/2-th,l=l2+.1);
         
         down(.09)
-        cuboid([14,pvc_od,5.1]);
+        cuboid([18,pvc_od,5.1]);
         
         
         if(top){
@@ -43,6 +43,7 @@ module body(id,th=th,tth=th,l=15){
 }
 
 pvc_od=48.30;
-pvc_id=40.30;
+pvc_id=40.50;
+if(!inc)
 body(pvc_od);
 

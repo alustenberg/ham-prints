@@ -138,7 +138,9 @@ module clip(a=90,th=th){
     }
 }
 
-//cap();
+if(!inc){
+    cap();
+}
 if(clip){
     off=23.7;
     rot=90;

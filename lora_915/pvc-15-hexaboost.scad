@@ -3,7 +3,7 @@ $fa=5;
 
 module body(id,th=th,tth=th,l=15){
     c=2;
- 
+
     // ant side
     ant_od=22.9;
     l2=30;
@@ -14,7 +14,7 @@ module body(id,th=th,tth=th,l=15){
         down(1)
         cyl(r=ant_od/2,l=l2+2.1);
     }
-    
+
     // coupler
     /*
     cl+=15;
@@ -31,12 +31,13 @@ module body(id,th=th,tth=th,l=15){
     color("green")
     difference(){
         nid=16.0;
-        cyl(r=pvc15_id/2+.00,l=20);
+        cyl(r=pvc15_id/2+.5,l=20);
+
         cyl(r=nid/2,l=22);
         down(5.01)
-        cyl(r=pvc10_od/2,l=10);
+        cyl(r=pvc10_od/2,l=14);
     }
 }
 
 body(pvc_od);
-        
+
