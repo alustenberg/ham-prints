@@ -1,6 +1,7 @@
 include <lib/inc.scad>
 off=10;
 top=true;
+inc=false;
 
 module body(id,th=th,tth=th,l=15){
     l2=th*2;
@@ -14,12 +15,13 @@ module body(id,th=th,tth=th,l=15){
             cyl(r=pvc_od/2,l=th*2);
         }
         cyl(r=pvc_id/2-th,l=l2+.1);
-        
-        down(.09)
-        cuboid([18,pvc_od,5.1]);
-        
+    
         
         if(top){
+           down(.09)
+            cuboid([18,pvc_od,5.1]);
+            
+            
             tth=10;
             up(tth)
             union(){
@@ -33,7 +35,7 @@ module body(id,th=th,tth=th,l=15){
             }
         }
         
-        if(top){
+        if(top && false){
             left(off)
             xt30(th=30);
         }
