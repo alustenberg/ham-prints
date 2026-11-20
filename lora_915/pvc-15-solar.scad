@@ -46,9 +46,9 @@ module body(id,th=th,tth=th,l=15){
             if(top){
                 // hanging holes
                 rotate([0,0,i+30])
-                up(th*4)
-                back(panel_width/2)
-                cyl(r=1,l=th*3);
+                up(1.8)
+                back(panel_width/1.1)
+                cyl(r=0.4,l=th*3);
             } else {
                 // weep holes
                 rotate([0,0,i+30])

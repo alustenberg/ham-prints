@@ -1,16 +1,19 @@
 include <lib/inc.scad>
 $fa=5;
 
+pvc15_id=40.50;
+
+
 module body(id,th=th,tth=th,l=15){
     c=2;
 
     // ant side
     ant_od=22.9;
-    l2=30;
+    l2=50;
     up(l2/2)
     color("silver")
     difference(){
-        cyl(r1=pvc15_od/2,r2=ant_od/2+3,l=l2);
+        cyl(r1=pvc15_od/2,r2=ant_od/2+2,l=l2);
         down(1)
         cyl(r=ant_od/2,l=l2+2.1);
     }
@@ -31,7 +34,7 @@ module body(id,th=th,tth=th,l=15){
     color("green")
     difference(){
         nid=16.0;
-        cyl(r=pvc15_id/2+.5,l=20);
+        cyl(r1=pvc15_id/2-.1,r2=pvc15_id/2+.1,l=20);
 
         cyl(r=nid/2,l=22);
         down(5.01)
